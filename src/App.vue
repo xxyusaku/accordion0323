@@ -1,28 +1,42 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <button @click="openAccordion">アコーディオン</button>
+    <div id="overlay" v-if="show">
+      <div id="content">
+        <p>アコーディオンの中身が入ります</p>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
+  data() {
+    return {
+      show: false
+    };
+  },
+  methods: {
+    openAccordion() {
+      this.show = true;
+    },
+    closeAccordion() {
+      this.show = false;
+    }
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+button {
+  width: 50%;
+  height: 70px;
+  background-color: gray;
+  font-size: 20px;
+  text-align: left;
+}
+
+#content p {
+   
 }
 </style>
